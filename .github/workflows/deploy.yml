@@ -1,0 +1,98 @@
+name: Deploy FRZE Website to MilesWeb Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: frze-website-deploy
+  cancel-in-progress: false
+
+env:
+  SERVER_IP: '103.212.120.182'
+  SERVER_USER: 'root'
+  SERVER_PORT: '22'
+  APP_DIR: '/var/www/frze-website'
+  APP_NAME: 'frze-website'
+  APP_PORT: '3002'
+
+jobs:
+  deploy:
+    name: Package, Sync & Deploy FRZE Website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup SSH Key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          if [ -z "$SSH_PRIVATE_KEY" ]; then
+            echo "::error::Secret DEPLOY_SSH_KEY is empty or not found! Add it in Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          printf '%s\n' "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Verify SSH Connection to MilesWeb
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+              -p ${SERVER_PORT} \
+              -o StrictHostKeyChecking=no \
+              -o UserKnownHostsFile=/dev/null \
+              -o ConnectTimeout=15 \
+              "${SERVER_USER}@${SERVER_IP}" "echo 'Connected as' \$(whoami) 'on' \$(hostname)"
+
+      - name: Package Code Bundle
+        run: |
+          tar --warning=no-file-changed \
+            -czf /tmp/frze-website-update.tar.gz \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='.next' \
+            --exclude='.env' \
+            --exclude='.env.local' \
+            .
+          echo "Bundle size: $(ls -lh /tmp/frze-website-update.tar.gz | awk '{print $5}')"
+
+      - name: Upload to Server
+        run: |
+          scp -i ~/.ssh/id_ed25519 \
+              -P ${SERVER_PORT} \
+              -o StrictHostKeyChecking=no \
+              -o UserKnownHostsFile=/dev/null \
+              -o ConnectTimeout=30 \
+              /tmp/frze-website-update.tar.gz "${SERVER_USER}@${SERVER_IP}:/tmp/frze-website-update.tar.gz"
+
+      - name: Extract, Build & Restart on Server
+        run: |
+          ssh -i ~/.ssh/id_ed25519 \
+              -P ${SERVER_PORT} \
+              -o StrictHostKeyChecking=no \
+              -o UserKnownHostsFile=/dev/null \
+              -o ConnectTimeout=30 \
+              "${SERVER_USER}@${SERVER_IP}" "
+            set -e
+            mkdir -p \"${APP_DIR}\"
+            tar -xzf /tmp/frze-website-update.tar.gz -C \"${APP_DIR}\"
+            rm -f /tmp/frze-website-update.tar.gz
+
+            cd \"${APP_DIR}\"
+            export PATH=\"/root/.nvm/versions/node/v20.11.1/bin:\$PATH\"
+
+            npm install --include=dev
+            NODE_ENV=production npm run build
+
+            if pm2 describe \"${APP_NAME}\" >/dev/null 2>&1; then
+              pm2 reload \"${APP_NAME}\" || pm2 restart \"${APP_NAME}\"
+            else
+              pm2 start npm --name \"${APP_NAME}\" -- start -- -p ${APP_PORT}
+            fi
+            pm2 save
+          "
