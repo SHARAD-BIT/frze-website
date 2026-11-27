@@ -20,6 +20,8 @@ export const metadata: Metadata = {
 };
 
 const PROHIBITED_ITEMS = [
+  "Compensated dating, sugar arrangements, or paid romantic companionship",
+  "In-person meetup solicitation, escorting, or offline dating requests",
   "Personal phone numbers or WhatsApp / Telegram contacts",
   "Email addresses or personal social media handles",
   "Home, college, or workplace addresses",

@@ -58,20 +58,34 @@ export default function PrivacyPage() {
         <strong>Non-Sale Commitment:</strong> FRZE does not sell, rent, lease, or trade personal data to data brokers or third-party advertisers.
       </p>
 
-      <h2>4. Strict 18+ Age Policy</h2>
+      <h2>4. Data Security, Encryption &amp; Retention</h2>
+      <ul>
+        <li><strong>Encryption in Transit &amp; at Rest:</strong> All API traffic uses HTTPS / TLS 1.3 encryption in transit, live Agora streams use SRTP/DTLS encryption, and stored account databases use AES-256 encryption at rest.</li>
+        <li><strong>Retention Schedule:</strong> Account data is retained only while your account remains active. Upon deletion, personal profile records, mobile numbers, avatars, and active tokens are permanently purged within 30 days, except statutory GST/tax invoices retained as required by Indian law.</li>
+      </ul>
+
+      <h2>5. Strict 18+ Age Policy</h2>
       <p>
-        FRZE is exclusively restricted to adults aged 18 and older. If we identify an account registered by a minor, it is purged immediately. Report concerns to{" "}
+        FRZE is exclusively restricted to adults aged 18 and older. We do not knowingly collect personal data from minors under 18. If we identify an account registered by a minor, it is purged immediately. Report concerns to{" "}
         <a href={`mailto:${FRZE_CONFIG.supportEmail}`} className="text-[var(--accent)] underline">
           {FRZE_CONFIG.supportEmail}
         </a>.
       </p>
 
-      <h2>5. Account &amp; Data Deletion</h2>
+      <h2>6. Account &amp; Data Deletion</h2>
       <p>
         Users may delete their account inside the app via <strong>Profile &gt; Settings &gt; Account &gt; Delete Account</strong>, or online at{" "}
         <Link href="/delete-account" className="text-[var(--accent)] underline">
           /delete-account
-        </Link>. Personal profile records, phone numbers, and sessions are permanently expunged within 30 days, subject only to statutory tax invoice retention.
+        </Link>.
+      </p>
+
+      <h2>7. Your Rights &amp; Grievance Redressal</h2>
+      <p>
+        You may request access to, correction of, or erasure of your personal data at any time by contacting our Grievance &amp; Data Protection Team at{" "}
+        <a href={`mailto:${FRZE_CONFIG.supportEmail}`} className="text-[var(--accent)] underline">
+          {FRZE_CONFIG.supportEmail}
+        </a>.
       </p>
     </LegalLayout>
   );

@@ -74,7 +74,7 @@ export default async function HomePage() {
               step: "01",
               icon: Sparkles,
               title: "Pick Your Topic & Mood",
-              desc: "Browse live host topics—from relationship guidance and breakup support to casual daily conversations—and see who is online.",
+              desc: "Browse live conversation topics—from communication and confidence to daily stress relief and career clarity—and see who is online.",
             },
             {
               step: "02",
@@ -155,7 +155,7 @@ export default async function HomePage() {
               Real People. Honest Conversations. Zero Bots.
             </h2>
             <p className="text-base leading-relaxed text-[var(--text-muted)]">
-              Whether you are sorting out a tricky relationship situation, missing someone in a long-distance bond, or simply want a friendly voice after a tiring day, FRZE connects you with real people ready to listen.
+              Whether you are sorting out a tough career decision, shaking off daily stress, or simply looking for a thoughtful sounding board after work, FRZE connects you with verified listeners ready to talk.
             </p>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 pt-2">
               <div className="frze-card rounded-2xl p-4 flex items-center gap-3">

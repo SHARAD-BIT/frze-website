@@ -23,6 +23,7 @@ export default function CommunityGuidelinesPage() {
       <h2>Core Platform Rules</h2>
       <ol>
         <li><strong>Strict 18+ Restriction:</strong> Adults aged 18+ only. Minor accounts are purged immediately.</li>
+        <li><strong>No Compensated Dating or Offline Meetups:</strong> FRZE is not a dating or matchmaking app. Paid romantic companionship, sugar arrangements, escorting, and soliciting in-person meetups are strictly prohibited.</li>
         <li><strong>No Sexually Explicit or Lewd Content:</strong> Nudity, sexual solicitation, and explicit content are prohibited.</li>
         <li><strong>Zero Harassment or Bullying:</strong> Treat every caller and host with dignity; unwanted persistent calling after being stopped is banned.</li>
         <li><strong>Privacy &amp; Anti-Recording:</strong> Do not screenshot, screen-record, or capture private calls without explicit legal consent.</li>

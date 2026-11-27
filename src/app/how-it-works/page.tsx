@@ -23,20 +23,20 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   const prompts = [
     {
-      title: "Sorting out mixed signals?",
-      desc: "Get an honest outside perspective on texting, ghosting, or first-date nerves.",
+      title: "Feeling overwhelmed after work?",
+      desc: "Talk out loud with a calm, verified listener instead of carrying stress into the night.",
     },
     {
-      title: "Going through a breakup?",
-      desc: "Talk through what happened with a calm, empathetic host who actually listens.",
+      title: "Need clarity on a tough choice?",
+      desc: "Bounce ideas around on career moves, college pressure, or everyday life decisions.",
     },
     {
-      title: "Long-distance stress?",
-      desc: "Share how you feel and brainstorm thoughtful ways to stay close.",
+      title: "Practicing communication?",
+      desc: "Build confidence for interviews, presentations, or important conversations in your language.",
     },
     {
       title: "Just need a real voice?",
-      desc: "Take a break from silent scrolling and enjoy genuine 1-on-1 conversation.",
+      desc: "Take a break from silent scrolling and enjoy genuine, respectful 1-on-1 conversation.",
     },
   ];
 
@@ -150,7 +150,7 @@ export default function HowItWorksPage() {
         <SectionHeading
           eyebrow="Everyday Moments"
           title="Why People Open FRZE"
-          subtitle="A judgment-free space built around real-life relationship and daily conversations."
+          subtitle="A judgment-free space built around respectful peer listening and everyday clarity."
         />
         <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {prompts.map((p) => (

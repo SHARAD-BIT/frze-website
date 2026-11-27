@@ -62,21 +62,31 @@ async function fetchFrzeJson<T>(path: string, revalidateSeconds = 120): Promise<
   }
 }
 
+const SAFE_FALLBACK_TOPICS: HostTopic[] = [
+  { label: "Communication & Confidence", hosts: 3 },
+  { label: "Stress & Overthinking", hosts: 3 },
+  { label: "Career & Clarity", hosts: 3 },
+  { label: "Friendship & Social", hosts: 3 },
+  { label: "Mindset & Motivation", hosts: 2 },
+  { label: "Daily Check-in", hosts: 2 },
+  { label: "Life Decisions", hosts: 1 },
+  { label: "Creative & Hobbies", hosts: 1 },
+];
+
+// Exclude dating, romance, flirting, or compensated-companionship tags from public web discovery
+// to stay compliant with Google Play Inappropriate Content & Store Guideline 1.1.14.
+const UNSAFE_WEB_TOPIC =
+  /dating|romance|flirt|crush|first\s*date|attract|late\s*night|secret|breakup|patch-up|marriage|ghosting|boyfriend|girlfriend|horny|love/i;
+
 export async function getHostTopics(): Promise<HostTopic[]> {
   const res = await fetchFrzeJson<{ data?: HostTopic[] }>("/api/host-topics", 300);
   if (res?.data && res.data.length > 0) {
-    return res.data;
+    const safe = res.data.filter((t) => !UNSAFE_WEB_TOPIC.test(t.label));
+    if (safe.length >= 4) {
+      return safe;
+    }
   }
-  return [
-    { label: "Love & Romance", hosts: 3 },
-    { label: "Breakup & Patch-up", hosts: 3 },
-    { label: "Crush Talks", hosts: 3 },
-    { label: "First Date", hosts: 3 },
-    { label: "Friendship to Love", hosts: 2 },
-    { label: "Flirting & Texting", hosts: 2 },
-    { label: "Move On Advice", hosts: 1 },
-    { label: "Long Distance Love", hosts: 1 },
-  ];
+  return SAFE_FALLBACK_TOPICS;
 }
 
 interface StrapiExpertImageEntry {
@@ -168,7 +178,7 @@ const FALLBACK_BLOGS: FrzeBlogPost[] = [
     title: "Why a 5-Minute Voice Call Beats 50 Text Messages",
     excerpt:
       "Text threads get misread and leave you waiting on typing indicators. Hearing a real human voice creates instant clarity and emotional relief.",
-    content: `Text messaging is fast for logistics, yet surprisingly exhausting when you actually want to feel heard. Without tone, pauses, and warmth, simple misunderstandings spiral into hours of overthinking.\n\nOn FRZE, every conversation happens with verified real hosts—either through crisp 1-on-1 audio calls, face-to-face video calls, or real-time chat when you prefer typing first.\n\nWhether you are sorting out a tricky first date, navigating long-distance miscommunication, or simply needing a judgment-free sounding board at the end of a long day, talking out loud helps you process thoughts in minutes rather than days.\n\nBefore every call, you stay in full control: check a host's verified profile, browse the topics they help with, and enjoy per-minute coin transparency with zero hidden subscriptions.`,
+    content: `Text messaging is fast for logistics, yet surprisingly exhausting when you actually want to feel heard. Without tone, pauses, and warmth, simple misunderstandings spiral into hours of overthinking.\n\nOn FRZE, every conversation happens with verified real hosts—either through crisp 1-on-1 audio calls, face-to-face video calls, or real-time chat when you prefer typing first.\n\nWhether you are sorting out a tough career decision, preparing for an important conversation, or simply needing a calm, judgment-free sounding board at the end of a long day, talking out loud helps you find clarity in minutes.\n\nBefore every call, you stay in full control: check a host's verified profile, browse the topics they help with, and enjoy per-minute coin transparency with zero hidden subscriptions.`,
     publishedAt: "2026-11-18",
     category: "VOICE MATTERS",
     readTime: "3 min read",
@@ -194,7 +204,7 @@ const FALLBACK_BLOGS: FrzeBlogPost[] = [
     title: "Becoming a Verified Host on FRZE: What Makes Great Conversations",
     excerpt:
       "Interested in earning on your own schedule by listening and sharing thoughtful conversation? Learn how FRZE Host Hub onboarding works.",
-    content: `FRZE Hosts come from across India and bring empathy, active listening, and real-world perspective across topics like relationships, breakups, friendships, and everyday confidence.\n\nInside the FRZE Host Hub, approved hosts set their own availability, manage audio and video call preferences, record a short voice intro, and track per-minute coin earnings and bank payouts transparently.\n\nGreat hosts focus on making callers feel respected, never pressured, and always safe within FRZE's 18+ Community Guidelines.`,
+    content: `FRZE Hosts come from across India and bring empathy, active listening, and real-world perspective across topics like communication, confidence, career clarity, and everyday stress.\n\nInside the FRZE Host Hub, approved hosts set their own availability, manage audio and video call preferences, record a short voice intro, and track per-minute coin earnings and bank payouts transparently.\n\nGreat hosts focus on making callers feel respected, never pressured, and always safe within FRZE's 18+ Community Guidelines—with strict bans on dating solicitation or off-platform contact.`,
     publishedAt: "2026-11-10",
     category: "FRZE HOST HUB",
     readTime: "3 min read",

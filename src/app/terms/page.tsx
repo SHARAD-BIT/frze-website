@@ -29,14 +29,20 @@ export default function TermsPage() {
 
       <h2>3. Zero-Tolerance Live Calling Code of Conduct</h2>
       <p>
-        FRZE enforces a strict zero-tolerance policy against abusive behavior, harassment, and objectionable UGC:
+        FRZE is a moderated peer-conversation and guidance platform—<strong>not</strong> a dating, matchmaking, escort, or compensated companionship service. FRZE enforces a strict zero-tolerance policy against abusive behavior, compensated dating, and objectionable UGC:
       </p>
       <ul>
+        <li>
+          <strong>No Compensated Dating or Paid Companionship:</strong> Offering, soliciting, or facilitating compensated dating, sugar-dating arrangements, gifts or financial support in exchange for romantic or sexual companionship, or in-person meetups is strictly prohibited.
+        </li>
         <li>No sexually explicit, lewd, pornographic, or obscene audio, video, or imagery.</li>
         <li>No harassment, threatening, stalking, bullying, hate speech, or illegal activities.</li>
         <li>No unauthorized call recording, broadcasting, or screenshotting without explicit consent.</li>
-        <li>No spam, wallet manipulation, impersonation, or off-platform payment solicitation.</li>
+        <li>No spam, wallet manipulation, impersonation, or off-platform payment or contact solicitation.</li>
       </ul>
+      <p>
+        Users can immediately <strong>Block</strong> or <strong>Report</strong> any participant during an active call or from a profile. Reported accounts are reviewed by our moderation team within <strong>24 hours</strong>, and violators face immediate account termination and device-level bans.
+      </p>
 
       <h2>4. Virtual Coins, In-App Purchases &amp; Billing</h2>
       <ul>

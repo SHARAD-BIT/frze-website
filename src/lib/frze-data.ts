@@ -37,7 +37,7 @@ export const CALLER_TESTIMONIALS = [
     id: "ria",
     name: "Ria S.",
     city: "Mumbai",
-    tag: "Relationship Advice",
+    tag: "Communication & Clarity",
     quote:
       "What I love most is how transparent the coins and ratings are. You choose the topic, preview who is online, and talk privately without sharing your number.",
   },
@@ -128,8 +128,8 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
         a: "FRZE supports mobile number OTP login and Google Sign-In, backed by session token rotation across devices.",
       },
       {
-        q: "Why do I see topic tags like Breakup & Patch-up or First Date?",
-        a: "FRZE dynamically lists the real conversation topics approved hosts actively offer on the platform so callers immediately find someone suited to what is on their mind.",
+        q: "What conversation topics are available on FRZE?",
+        a: "FRZE hosts support peer conversations around communication, confidence, stress relief, career clarity, mindset, and everyday life—strictly moderated and non-dating.",
       },
     ],
   },
@@ -137,6 +137,10 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
     id: "safety",
     title: "Blocking, Reporting & User Safety",
     items: [
+      {
+        q: "Does FRZE allow dating, escorting, or paid companionship?",
+        a: "No. FRZE is strictly a peer-conversation and guidance platform—never a dating, matchmaking, or compensated companionship service. Any solicitation of dates, paid romance, or offline meetups results in immediate account termination.",
+      },
       {
         q: "How do I block or report someone during or after a call?",
         a: "Tap the Block or Report icon directly on the active call screen or profile page. Blocking immediately ends the call and prevents any future contact.",

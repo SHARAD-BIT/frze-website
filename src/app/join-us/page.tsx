@@ -82,7 +82,7 @@ export default function JoinUsPage() {
               icon: Mic,
               step: "Step 2",
               title: "Build Your Profile & Voice Intro",
-              desc: "Choose your languages, pick up to 5 conversation topics (from Love & Romance to Move On Advice), write a short bio, and record a voice intro.",
+              desc: "Choose your languages, pick up to 5 conversation topics (such as Communication & Confidence, Career Clarity, or Stress Relief), write a short bio, and record a voice intro.",
             },
             {
               icon: BadgeCheck,
@@ -122,10 +122,10 @@ export default function JoinUsPage() {
             <div className="frze-card-elevated rounded-3xl p-8 space-y-3">
               <ShieldCheck className="h-7 w-7 text-[var(--accent)]" />
               <h3 className="text-2xl font-extrabold text-[var(--text)]">
-                Strict Host Protection Rules
+                Strict Host Protection &amp; Non-Dating Policy
               </h3>
               <p className="text-sm leading-relaxed text-[var(--text-muted)]">
-                Hosts can end any call and block/report abusive callers with a single tap. Off-platform payments and personal contact sharing are prohibited to protect every host.
+                FRZE is a peer-conversation platform—compensated dating, paid romance, offline meetups, and off-platform payments are strictly banned. Hosts can end any call and block/report abusive callers with one tap.
               </p>
             </div>
           </div>
