@@ -73,18 +73,10 @@ const SAFE_FALLBACK_TOPICS: HostTopic[] = [
   { label: "Creative & Hobbies", hosts: 1 },
 ];
 
-// Exclude dating, romance, flirting, or compensated-companionship tags from public web discovery
-// to stay compliant with Google Play Inappropriate Content & Store Guideline 1.1.14.
-const UNSAFE_WEB_TOPIC =
-  /dating|romance|flirt|crush|first\s*date|attract|late\s*night|secret|breakup|patch-up|marriage|ghosting|boyfriend|girlfriend|horny|love/i;
-
 export async function getHostTopics(): Promise<HostTopic[]> {
-  const res = await fetchFrzeJson<{ data?: HostTopic[] }>("/api/host-topics", 300);
+  const res = await fetchFrzeJson<{ data?: HostTopic[] }>("/api/host-topics", 60);
   if (res?.data && res.data.length > 0) {
-    const safe = res.data.filter((t) => !UNSAFE_WEB_TOPIC.test(t.label));
-    if (safe.length >= 4) {
-      return safe;
-    }
+    return res.data;
   }
   return SAFE_FALLBACK_TOPICS;
 }
