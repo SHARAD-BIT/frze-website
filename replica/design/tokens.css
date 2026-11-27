@@ -1,0 +1,58 @@
+:root {
+  /* Default: Warm Light FRZE Theme */
+  --bg: #FFF8F5;
+  --surface: #FFFFFF;
+  --surface-elevated: #F4F7FB;
+  --border: #E5E7EB;
+  --border-input: #6B7280;
+  --text: #111827;
+  --text-muted: #4B5563;
+  --accent: #C81E4A;
+  --on-accent: #FFFFFF;
+  --accent-secondary: #5E17EB;
+  --on-accent-secondary: #FFFFFF;
+  --amber: #FDAB11;
+  --on-amber: #09090D;
+  --teal: #0F766E;
+  --on-teal: #FFFFFF;
+  --danger: #DC2626;
+  --success: #047857;
+  --warning: #B45309;
+
+  /* FRZE Brand Gradient (from frze_wordmark.svg) */
+  --brand-gradient: linear-gradient(135deg, #F325B8 0%, #FDAB11 55%, #F93157 100%);
+
+  /* Radii & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+  --shadow-card: 0 4px 20px rgba(17, 24, 39, 0.06);
+  --shadow-glow: 0 12px 32px -8px rgba(200, 30, 74, 0.25);
+  --shadow-pop: 0 16px 40px rgba(17, 24, 39, 0.12);
+}
+
+[data-theme="dark"] {
+  --bg: #09090D;
+  --surface: #121218;
+  --surface-elevated: #1A1A24;
+  --border: #272736;
+  --border-input: #6E6E85;
+  --text: #F8FAFC;
+  --text-muted: #A1A1B5;
+  --accent: #FF5A5F;
+  --on-accent: #09090D;
+  --accent-secondary: #5E17EB;
+  --on-accent-secondary: #FFFFFF;
+  --amber: #FDAB11;
+  --on-amber: #09090D;
+  --teal: #2DD4BF;
+  --on-teal: #041012;
+  --danger: #F87171;
+  --success: #34D399;
+  --warning: #FBBF24;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25);
+  --shadow-glow: 0 0 36px -8px rgba(255, 90, 95, 0.35);
+  --shadow-pop: 0 16px 40px rgba(0, 0, 0, 0.45);
+}

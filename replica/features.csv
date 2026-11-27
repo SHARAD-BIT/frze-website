@@ -1,0 +1,34 @@
+feature,area,priority,original,clone,notes
+Sticky top navbar with brand logo and 7-link navigation,navigation,must,yes,yes,Sticky header with FRZE logo cycling label and 7 routes
+Responsive mobile slide-out navigation drawer,navigation,must,yes,yes,Mobile drawer with Escape close and active link styling
+Hero section with core value proposition and primary CTA,home,must,yes,yes,FRZE voice & video calling positioning
+Live host / topic showcase carousel with voice preview or topic tags,home,must,yes,yes,Live /api/expert-leaderboard hosts and /api/host-topics chips
+3-step "How it works" preview section with FRZE UI mockups,home,must,yes,yes,3-step walkthrough on Home and /how-it-works
+Platform metrics & social proof section,home,must,yes,yes,Live host/topic counts and honest transparency cards
+Safety & trust pillars summary on Home,home,must,yes,yes,3-column cards linking to /safety
+App download banner with Google Play & Apple App Store badges,home,must,yes,yes,Links to com.frze.app Play Store and App Store
+Dedicated How It Works page (/how-it-works),marketing,must,yes,yes,OTP onboarding + audio/video/chat modes + everyday prompts
+Dedicated Become a Host / Join Us page (/join-us),host-funnel,must,yes,yes,FRZE Host Hub onboarding steps and host testimonials
+Dedicated Safety page (/safety),trust-safety,must,yes,yes,Verification + unrecorded SRTP/DTLS + 1-tap block + no off-platform PII
+Dedicated Help / FAQ page (/help) with category accordions,support,must,yes,yes,Interactive 4-category FAQ accordions + support CTAs
+Contact / Customer Enquiry form wired to Strapi backend,support,must,yes,yes,Proxy /api/frze/enquiry -> POST https://api.frzeapp.in/api/customer-enquiries
+Privacy Policy page (/privacy),legal,must,yes,yes,FRZE Privacy Policy preserved from backend public/privacy
+Terms of Service page (/terms),legal,must,yes,yes,FRZE Terms of Service preserved from backend public/terms
+Account Deletion page (/delete-account),legal,must,yes,yes,In-app & web account deletion portal
+Community Guidelines & Refund Policy pages,legal,must,yes,yes,/community-guidelines and /refund-policy implemented
+Footer with Quick Links + Contact + Policies + Store Badges + Socials,navigation,must,yes,yes,FRZE Technologies footer with all routes & support@frzeapp.in
+Dedicated Download page (/download) with phone preview,marketing,should,yes,yes,Interactive phone preview + frze:// deep link support
+Blog listing & article detail pages (/blog),content,should,yes,yes,Supports Strapi STRAPI_API_TOKEN with FRZE editorial fallback
+Interactive voice sample audio player on host cards,discovery,should,yes,no,Phase 2 when public host showcase audio endpoint is enabled
+Testimonial avatar selector carousel (Users & Hosts),social-proof,should,yes,yes,Interactive TestimonialSwitcher on Home and /join-us
+Floating Store CTA button & dismissible Host Join widget,conversion,should,yes,yes,FloatingStoreButton alternating Play/App Store
+Newsletter subscription input wired to Strapi,marketing,should,yes,no,Phase 2 (new-letter-email POST is currently auth-gated in Strapi)
+Light / Dark theme support using FRZE color tokens,design,should,yes,yes,Dark obsidian default + warm light theme toggle in Navbar
+SEO metadata & OpenGraph tags from Strapi seo/app-config,seo,should,yes,partial,Per-page Next.js metadata set; dynamic Strapi seo optional
+Public Web Host Directory (/discover) with Language & Video filters,web-app,could,yes,no,Phase 2 web calling slice
+Web OTP Login modal & /login page (/api/session-auth/otp/*),web-app,could,yes,no,Phase 2 web calling slice
+Web Host Onboarding Portal (/host-apply),host-funnel,could,yes,no,Phase 2 (currently links to FRZE Host Hub / Contact enquiry)
+Live WebRTC / Agora 1-on-1 Audio & Video calling in browser,web-app,could,yes,no,Phase 2 (live calling runs in FRZE Flutter app)
+Multilingual UI toggle (English / Hindi),i18n,could,yes,no,Optional future enhancement
+Baatein brand assets 3D characters and proprietary copy,brand,must,yes,skip,Clean-room replaced with FRZE assets and fresh copy
+Baatein partner identities and store listings,data,must,yes,skip,Replaced with live FRZE hosts and com.frze.app store links
